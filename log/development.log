@@ -1,0 +1,77 @@
+Started GET "/" for 172.17.0.1 at 2025-02-22 13:20:48 +0000
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='MiApi'*/[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='MiApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MiApi'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.0ms | GC: 0.0ms)
+Completed 200 OK in 496ms (Views: 95.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 19.7ms)
+
+
+Started GET "/icon.png" for 172.17.0.1 at 2025-02-22 13:20:50 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+  [1m[36mActiveRecord::InternalMetadata Load (3.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='MiApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (9.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-02-22 13:38:14.248514', '2025-02-22 13:38:14.248519') RETURNING "key" /*application='MiApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MiApi'*/[0m
+Migrating to CreateProducts (20250222132627)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MiApi'*/[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='MiApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250222132627') RETURNING "version" /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (19.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mProduct Create (61.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('camisa', '2025-02-22 13:40:17.287294', '2025-02-22 13:40:17.287294') RETURNING "id" /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (15.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (14.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mProduct Create (31.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('Pantalones', '2025-02-22 13:40:51.399808', '2025-02-22 13:40:51.399808') RETURNING "id" /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mProduct Load (3.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='MiApi'*/[0m
+  [1m[36mProduct Load (6.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (16.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mProduct Update (32.8ms)[0m  [1m[33mUPDATE "products" SET "name" = 'Bermuda', "updated_at" = '2025-02-22 13:42:39.849797' WHERE "products"."id" = 1 /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mProduct Load (8.6ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='MiApi'*/[0m
+  [1m[36mProduct Load (83.8ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='MiApi'*/[0m
+Started GET "/" for 172.17.0.1 at 2025-02-22 14:06:20 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MiApi'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 133ms (Views: 28.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 172.17.0.1 at 2025-02-22 14:06:33 +0000
+Processing by ProductsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (4.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='MiApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MiApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MiApi'*/[0m
+Started GET "/" for 172.17.0.1 at 2025-02-22 14:11:10 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (5.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MiApi'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.2ms | GC: 0.0ms)
+Completed 200 OK in 363ms (Views: 101.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 172.17.0.1 at 2025-02-22 14:11:28 +0000
+Processing by ProductsController#index as HTML
+Completed 200 OK in 2618ms (Views: 16.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for 172.17.0.1 at 2025-02-22 14:11:39 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/products" for 172.17.0.1 at 2025-02-22 14:18:01 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (5.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MiApi'*/[0m
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (49.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='MiApi',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:4:in `index'
+Completed 200 OK in 375ms (Views: 54.1ms | ActiveRecord: 58.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
